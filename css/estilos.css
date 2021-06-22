@@ -1,80 +1,96 @@
 h2,
 #grupo {
-  color: #9f9f9f;
+    color: #9f9f9f;
 }
 
 li {
-  color: #f5ffaa;
+    color: #f5ffaa;
 }
 
 #titulo {
-  margin-top: 18px;
+    margin-top: 18px;
 }
 
+
 /*BARRA DE NAVEGACION*/
+
 #navbar {
-  background-color: #2b2e44;
+    background-color: #2b2e44;
 }
 
 #main-nav {
-  display: flex;
-  list-style: none;
-  font-family: "Lato", sans-serif;
+    display: flex;
+    list-style: none;
+    font-family: "Lato", sans-serif;
 }
+
 #main-nav li a {
-  color: #fff;
-  text-decoration: none;
-  padding: 25px 0.9em;
-  display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 25px 0.9em;
+    display: inline-block;
 }
 
 #main-nav li a:hover {
-  background-color: #060829;
+    background-color: #060829;
 }
+
 
 /*Cuerpo*/
 
 #sorteos-creados {
-  margin-bottom: 10px;
+    margin-bottom: 250px;
+    width: 60%;
 }
 
 #tabla-sorteos table,
 th,
 td {
-  border: 2px solid black;
+    border: 2px solid black;
+    text-align: center;
+    width: 60%;
+    padding: 20px;
 }
 
+
 /*PIE DE PAGINA*/
+
 footer {
-  background-color: #121018;
+    background-color: #121018;
+    text-align: center;
 }
 
 footer ul {
-  margin: 20px 0;
+    margin: 20px 0;
+    width: 60%;
 }
+
 footer li {
-  list-style: none;
-  padding: 5px 0;
+    list-style: none;
+    padding: 10px 0;
 }
+
 footer div div ul li a {
-  text-decoration: none;
-  color: #9f9f9f;
-  font-size: 0.88rem;
+    text-decoration: none;
+    color: #9f9f9f;
+    font-size: 0.88rem;
 }
 
 #social {
-  margin-top: 80px;
-  text-align: center;
+    margin-top: 80px;
+    text-align: center;
 }
+
 #social a i {
-  color: #fff;
-  font-size: 2.5rem;
-  margin-left: 1.5em;
+    color: #fff;
+    font-size: 2.5rem;
+    margin-left: 1.5em;
 }
+
 #copyright {
-  color: #9f9f9f;
-  text-align: center;
-  font-size: 0.8rem;
-  border-top: 1px solid #272323;
-  padding: 12px 0;
+    color: #9f9f9f;
+    text-align: center;
+    font-size: 0.8rem;
+    border-top: 1px solid #272323;
+    padding: 12px 0;
 }

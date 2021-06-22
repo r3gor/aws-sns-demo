@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DEMO SNS</title>
 
     <!--Fuentes-->
-    <link
-    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
 
     <!--Font-Awesome-->
@@ -17,14 +16,11 @@
     <!--Favicon-->
 
     <!--Estilos CSS-->
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-    crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilos.css">
 
 </head>
+
 <body>
     <!--Cabezera-->
     <header>
@@ -45,7 +41,11 @@
     <!--Principal-->
     <main>
         <div id="Cuerpo" class="container">
-            <div id="titulo"><h4>Sorteos Creados:</h4></div>
+            <div id="titulo">
+                <h4>Sorteos Creados:</h4>
+            </div>
+            <p> </p>
+
             <div id="sorteos" class="row">
                 <div id="sorteos-creados" class="col">
                     <table id="tabla-sorteos">
@@ -54,18 +54,24 @@
                             <th>Acción</th>
                         </tr>
                         <tr>
-                           <td>Sorteo Prueba</td>
-                           <td>
-                               <div class="container">
-                                   <button>Seleccionar</button>
-                                   <button>Borrar</button>
-                               </div>
-                           </td> 
+                            <td>Sorteo Prueba</td>
+                            <td>
+                                <div class="container">
+                                    <button>Seleccionar</button>
+                                    <p>
+
+                                    </p>
+
+                                    <button>Borrar</button>
+                                </div>
+                            </td>
                         </tr>
                     </table>
                 </div>
                 <div id="nuevo" class="col">
-                    <div id="nuevo-titulo"><h4>Nuevo Sorteo</h4></div>
+                    <div id="nuevo-titulo">
+                        <h4>Nuevo Sorteo</h4>
+                    </div>
                     <form action="" method="POST">
                         <label for="nombre">Nombre del Sorteo: </label><input type="text">
                         <input type="submit" value="Crear">
@@ -107,4 +113,5 @@
 
 
 </body>
+
 </html>
