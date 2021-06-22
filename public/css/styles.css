@@ -57,37 +57,42 @@ footer {
     text-align: center;
 }
 
-footer ul {
+/* footer ul {
     margin: 20px 0;
     width: 60%;
-}
+} */
 
-footer li {
+/* footer li {
     list-style: none;
     padding: 10px 0;
+} */
+
+footer {
+  margin-top: 3rem;
+  padding: 2rem;
 }
 
 footer div div ul li a {
     text-decoration: none;
-    color: #9f9f9f;
+    color: #ffefef;
     font-size: 0.88rem;
 }
 
-#social {
+/* #social {
     margin-top: 80px;
     text-align: center;
-}
+} */
 
-#social a i {
+/* #social a i {
     color: #fff;
     font-size: 2.5rem;
     margin-left: 1.5em;
-}
+} */
 
 #copyright {
-    color: #9f9f9f;
+    color: #ffffff;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     border-top: 1px solid #272323;
     padding: 12px 0;
 }
