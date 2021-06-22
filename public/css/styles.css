@@ -38,18 +38,14 @@ li {
 
 /*Cuerpo*/
 
-#sorteos-creados {
+/* #sorteos-creados {
     margin-bottom: 100px;
     text-align: center;
     width: 60%;
-}
+} */
 
-#tabla-sorteos table,
-th,
-td {
-    border: 2px solid black;
+th, td{
     text-align: center;
-    width: 60%;
     padding: 20px;
 }
 

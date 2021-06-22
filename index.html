@@ -32,9 +32,14 @@
                 <div class="row justify-content-between">
                     <h2 id="titulo" class="col">Demo SNS</h2>
                     <ul id="main-nav" class="col-3">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Enlace 1</a></li>
-                        <li><a href="#">Enlace 2</a></li>
+                        <li>
+                            <span style="font-size: 3em;">
+                                <a href="https://github.com/r3gor/aws-sns-demo" target="_blank" class="fab fa-github"
+                                    aria-hidden="true"></a>
+                            </span>
+                        </li>
+                        <!-- <li><a href="#">Docs</a></li> -->
+                        <!-- <li><a href="#">Enlace 2</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -44,44 +49,57 @@
     <!--Principal-->
     <main>
         <div id="Cuerpo" class="container">
-            <div id="titulo">
-                <h4>Sorteos Creados:</h4>
-            </div>
-            <div id="sorteos" class="row">
-                <div id="sorteos-creados" class="col">
-                    <table id="tabla-sorteos">
-                        <tr>
-                            <th>Sorteo</th>
-                            <th>Acción</th>
-                        </tr>
-                        <tbody id="sorteos-body">
-                            <tr>
-                                <td>Loading...</td>
-                                <td>
-                                    <div class="container">
-                                        <button class="btn btn-primary m-2">Seleccionar</button>
-                                        <button class="btn btn-danger m-2">Borrar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div id="nuevo" class="col">
-                    <div id="nuevo-titulo">
-                        <h4>Nuevo Sorteo</h4>
+            <div class="row">
 
+                <div class="col">
+                    <div id="titulo" class="row text-center">
+                        <div class="display-2 pb-2">Mis Sorteos</div>
+                        <br>
                     </div>
-                    <p></p>
-                    <form action="" method="POST">
-                        <label for="nombre">Nombre del Sorteo </label>
-                        <p></p>
-                        <input type="text" class="form-control">
-                        <p></p>
-                        <input type="submit" value="Crear">
-                    </form>
+                    <div id="sorteos" class="row p-3 m-1">
+                        <div id="sorteos-creados" class="col p-4 m-3">
+                            <table class="table table-hover" id="tabla-sorteos">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Sorteo</th>
+                                        <th scope="col">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sorteos-body">
+                                    <tr>
+                                        <td>Loading...</td>
+                                        <td>
+                                            <div class="container btns">
+                                                <button class="btn btn-primary m-2">Seleccionar</button>
+                                                <button class="btn btn-danger m-2">Borrar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col p-4 m-3">
+                            <div class="row" id="nuevo-titulo">
+                                <h4 class="display-6 pb-3">Nuevo Sorteo</h4>
+                                <br>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <form id="new-topic" action="" method="POST">
+                                        <label for="nombre">Nombre del Sorteo </label>
+                                        <br>
+                                        <input type="text" class="form-control">
+                                        <br>
+                                        <button class="btn btn-primary">Crear</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
+
         </div>
     </main>
 

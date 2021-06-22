@@ -5,9 +5,20 @@ import {
     ListSubscriptionsByTopicCommand,
     ListTopicsCommand,
     SubscribeCommand,
+    DeleteTopicCommand,
 } from "@aws-sdk/client-sns";
 import { snsClient } from "./libs/snsClient.js";
 
+// const params = { TopicArn: "TOPIC_ARN" }; //TOPIC_ARN
+const deleteTopic = async (params) => {
+    try {
+        const data = await snsClient.send(new DeleteTopicCommand(params));
+        // console.log("Success.", data);
+        return data; // For unit tests.
+    } catch (err) {
+        console.log("Error", err.stack);
+    }
+};
 
 // const params = { Name: "Test_topic1406" }; //TOPIC_NAME
 const createTopic = async (params) => {
@@ -16,7 +27,7 @@ const createTopic = async (params) => {
         // console.log("Success.", data);
         return data; // For unit tests.
     } catch (err) {
-        // console.log("Error", err.stack);
+        console.log("Error", err.stack);
     }
 };
 
@@ -28,7 +39,7 @@ const GetTopicAttributes = async (params) => {
         // console.log("Success.", data);
         return data; // For unit tests.
     } catch (err) {
-        // console.log("Error", err.stack);
+        console.log("Error", err.stack);
     }
 };
 
@@ -40,7 +51,7 @@ const listSubscriptionsByTopic = async (params) => {
         // console.log("Success.", data);
         return data; // For unit tests.
     } catch (err) {
-        // console.log("Error", err.stack);
+        console.log("Error", err.stack);
     }
 };
 
@@ -51,7 +62,7 @@ const listTopics = async () => {
         // console.log("Success.", data);
         return data; // For unit tests.
     } catch (err) {
-        // console.log("Error", err.stack);
+        console.log("Error", err.stack);
     }
 };
 
@@ -68,11 +79,13 @@ const subscribeEmail = async (params) => {
         // console.log("Success.", data);
         return data; // For unit tests.
     } catch (err) {
-        // console.log("Error", err.stack);
+        console.log("Error", err.stack);
     }
 };
 
 export {
     listTopics,
     listSubscriptionsByTopic,
+    createTopic,
+    deleteTopic,
 }
