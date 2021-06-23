@@ -22,6 +22,9 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
 
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 </head>
 
 <body>
@@ -57,7 +60,7 @@
                     </div>
                     <div id="sorteos" class="row p-3 m-1">
                         <div id="sorteos-creados" class="col p-4 m-3">
-                            <table class="table table-hover" id="tabla-sorteos">
+                            <table class="table table-hover animate__animated animate__fadeIn" id="tabla-sorteos">
                                 <thead>
                                     <tr>
                                         <th scope="col">Sorteo</th>
@@ -97,23 +100,80 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-6 text-center">
-                    <h3 class="display-6 bold" id="grupo">Grupo Nº8:</h3>
-                    <ul class="list-group">
-                        <li class="list-group-item">Chavez Malca, Emerzon Jose</li>
-                        <li class="list-group-item">Cifuentes Michuy, Daniel Ernesto</li>
-                        <li class="list-group-item">Jiménez Castañeda, Luis Franco</li>
-                        <li class="list-group-item">Noriega Vera, Brandom Marcelo</li>
-                        <li class="list-group-item">Pérez Fonseca, Juan Diego</li>
-                        <li class="list-group-item">Ramos Paredes, Roger Anthony</li>
-                        <li class="list-group-item">Salcedo Alfaron, Jhon Marco</li>
-                    </ul>
-
+            <hr />
+        </div>
+        <div id="topic-view">
+            <!-- ---------------------- Topic View ----------------------  -->
+            <div id="Cuerpo" class="container">
+                <div id="titulo">
+                    <h4 id="topic-title"> </h4>
                 </div>
+
+                <div id="sorteos" class="row">
+                    <div id="sorteos-creados" class="col">
+                        <table id="tabla-sorteos">
+                            <tr>
+                                <th>Suscriptores</th>
+                            </tr>
+                            <tr id="topic-suscriptors">
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="nuevo" class="col">
+                        <div id="nuevo-titulo">
+                            <h4>Añadir suscriptor </h4>
+                        </div>
+                        <p></p>
+                        <form id="topic-suscribe">
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                    name="email">
+                            </div>
+                            <p></p>
+                            <button class="btn btn-primary">Añadir</button>
+                        </form>
+                    </div>
+                    <div class="container">
+                        <h2>Enviar mensaje </h2>
+                        <form id="topic-message">
+                            <div class="form-group">
+
+                                <label for="nombre">Asunto </label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <form>
+                                <div class="form-group">
+                                    <label for="comment">Mensaje : </label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                            </form>
+
+                            <input type="submit" value="Enviar">
+                        </form>
+                    </div>
+                </div>
+
+                <hr />
+
             </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-6 text-center">
+                <h3 class="display-6 bold" id="grupo">Grupo Nº8:</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Chavez Malca, Emerzon Jose</li>
+                    <li class="list-group-item">Cifuentes Michuy, Daniel Ernesto</li>
+                    <li class="list-group-item">Jiménez Castañeda, Luis Franco</li>
+                    <li class="list-group-item">Noriega Vera, Brandom Marcelo</li>
+                    <li class="list-group-item">Pérez Fonseca, Juan Diego</li>
+                    <li class="list-group-item">Ramos Paredes, Roger Anthony</li>
+                    <li class="list-group-item">Salcedo Alfaron, Jhon Marco</li>
+                </ul>
 
-
+            </div>
         </div>
     </main>
 
@@ -146,7 +206,7 @@
         </div>
     </footer>
 
-    <script src="./src/index.js"></script>
+    <script src="./script/index.js" type="module"></script>
 </body>
 
 </html>

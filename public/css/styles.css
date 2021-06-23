@@ -89,6 +89,10 @@ footer div div ul li a {
     margin-left: 1.5em;
 } */
 
+li{
+    color: #000000;
+}
+
 #copyright {
     color: #ffffff;
     text-align: center;

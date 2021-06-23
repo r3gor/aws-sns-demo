@@ -88,4 +88,6 @@ export {
     listSubscriptionsByTopic,
     createTopic,
     deleteTopic,
+    subscribeEmail,
+    GetTopicAttributes,
 }

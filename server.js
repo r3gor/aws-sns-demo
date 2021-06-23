@@ -1,6 +1,6 @@
 import Express from "express";
 import * as path from 'path';
-import { listTopics, listSubscriptionsByTopic, createTopic, deleteTopic, } from './sns_helpers.js'
+import { listTopics, listSubscriptionsByTopic, createTopic, deleteTopic, subscribeEmail, } from './sns_helpers.js'
 
 const app = Express();
 const port = 3000;
@@ -15,18 +15,6 @@ app.get("/", async (req, res) => {
 app.get("/topics", async (req, res) => {
     const { Topics } = await listTopics()
     res.json(Topics);
-})
-
-app.get("/topics/:index/suscribers", async (req, res) => {
-    const { params: { index } } = req
-    const { Topics } = await listTopics()
-    const { TopicArn } = Topics[index]
-
-    const params = { TopicArn }; //TOPIC_ARN
-
-    const s = await listSubscriptionsByTopic(params);
-
-    res.json(s);
 })
 
 app.post("/topics", async (req, res) => {
@@ -49,6 +37,32 @@ app.delete("/topics", async (req, res) => {
     const data = await deleteTopic(params);
 
     res.json(data);
+})
+
+app.get("/topics/:TopicArn/suscribers", async (req, res) => {
+    const { params: { TopicArn } } = req
+
+    const params = { TopicArn }; //TOPIC_ARN
+    console.log(params);
+
+    const s = await listSubscriptionsByTopic(params);
+    res.json(s);
+})
+
+app.post("/topics/:TopicArn/suscribers", async (req, res) => {
+    const { Endpoint } = req.body;
+    const { TopicArn } = req.params;
+
+    const params = {
+        Protocol: "email",
+        TopicArn, //TOPIC_ARN
+        Endpoint, //EMAIL_ADDRESS
+    };
+
+    console.log(params);
+
+    const s = await subscribeEmail(params);
+    res.json(s);
 })
 
 app.listen(port, () => console.log("Listening on port " + port));
