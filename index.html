@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SNS (demo)</title>
 
     <!--Fuentes-->
@@ -27,27 +27,28 @@
 
 </head>
 
-<body>
-    <!--Cabezera-->
-    <header>
-        <nav id="navbar">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <h2 id="titulo" class="col">Demo SNS</h2>
-                    <ul id="main-nav" class="col-3">
-                        <li>
-                            <span style="font-size: 3em;">
-                                <a href="https://github.com/r3gor/aws-sns-demo" target="_blank" class="fab fa-github"
-                                    aria-hidden="true"></a>
-                            </span>
-                        </li>
-                        <!-- <li><a href="#">Docs</a></li> -->
-                        <!-- <li><a href="#">Enlace 2</a></li> -->
-                    </ul>
-                </div>
+<!--Cabezera-->
+<header>
+    <nav id="navbar" class="navbar-nav">
+        <div class="container">
+            <div class="row justify-content-between">
+                <h2 id="titulo" class="col">Demo SNS</h2>
+                <ul id="main-nav" class="col-3">
+                    <li>
+                        <span style="font-size: 40px">
+                            <a href="https://github.com/r3gor/aws-sns-demo" target="_blank" class="fab fa-github"
+                                aria-hidden="true"></a>
+                        </span>
+                    </li>
+                    <!-- <li><a href="#">Docs</a></li> -->
+                    <!-- <li><a href="#">Enlace 2</a></li> -->
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
+
+<body>
 
     <!--Principal-->
     <main>
@@ -59,7 +60,7 @@
                         <br>
                     </div>
                     <div id="sorteos" class="row p-3 m-1">
-                        <div id="sorteos-creados" class="col p-4 m-3">
+                        <div id="sorteos-creados" class="col p-4 m-3 animate__animated animate__flash">
                             <table class="table table-hover animate__animated animate__fadeIn" id="tabla-sorteos">
                                 <thead>
                                     <tr>
@@ -68,19 +69,11 @@
                                     </tr>
                                 </thead>
                                 <tbody id="sorteos-body">
-                                    <tr>
-                                        <td>Loading...</td>
-                                        <td>
-                                            <div class="container btns">
-                                                <button class="btn btn-primary m-2">Seleccionar</button>
-                                                <button class="btn btn-danger m-2">Borrar</button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <td colspan="2">Loading...</td>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col p-4 m-3">
+                        <div class="col p-4 m-3 animate__animated animate__fadeIn">
                             <div class="row" id="nuevo-titulo">
                                 <h4 class="display-6 pb-3">Nuevo Sorteo</h4>
                                 <br>
@@ -102,18 +95,18 @@
             </div>
             <hr />
         </div>
-        <div id="topic-view">
+        <div id="topic-view" class="animate__animated animate__backInDown">
             <!-- ---------------------- Topic View ----------------------  -->
             <div id="Cuerpo" class="container">
                 <div id="titulo">
-                    <h4 id="topic-title"> </h4>
+                    <div id="topic-title"> </div>
                 </div>
 
                 <div id="sorteos" class="row">
                     <div id="sorteos-creados" class="col">
                         <table id="tabla-sorteos">
                             <tr>
-                                <th>Suscriptores</th>
+                                <th>Suscriptos</th>
                             </tr>
                             <tr id="topic-suscriptors">
                                 <td></td>
@@ -141,17 +134,18 @@
                             <div class="form-group">
 
                                 <label for="nombre">Asunto </label>
-                                <input type="text" class="form-control">
+                                <input id="topic-message-asunto" type="text" class="form-control">
                             </div>
 
                             <form>
                                 <div class="form-group">
                                     <label for="comment">Mensaje : </label>
-                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    <textarea id="topic-message-mensaje" class="form-control" rows="5"
+                                        id="comment"></textarea>
                                 </div>
                             </form>
 
-                            <input type="submit" value="Enviar">
+                            <button class="btn btn-primary" id="topic-message-send">Enviar</button>
                         </form>
                     </div>
                 </div>
@@ -179,28 +173,6 @@
 
     <!--Pie de Pagina-->
     <footer>
-        <!-- <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-4">
-                    <ul>
-                        <li>Chavez Malca, Emerzon Jose</li>
-                        <li>Cifuentes Michuy, Daniel Ernesto</li>
-                        <li>Jiménez Castañeda, Luis Franco</li>
-                        <li>Noriega Vera, Brandom Marcelo</li>
-                        <li>Pérez Fonseca, Juan Diego</li>
-                        <li>Ramos Paredes, Roger Anthony</li>
-                        <li>Salcedo Alfaron, Jhon Marco</li>
-                    </ul>
-                </div>
-                <div class="col-4">
-                    <div id="social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div id="copyright">
             &copy Derechos reservados. Curso de Arquitectura de Software - UNMSM 2021 I
         </div>

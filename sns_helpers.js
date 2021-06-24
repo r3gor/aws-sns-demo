@@ -6,8 +6,24 @@ import {
     ListTopicsCommand,
     SubscribeCommand,
     DeleteTopicCommand,
+    PublishCommand,
 } from "@aws-sdk/client-sns";
 import { snsClient } from "./libs/snsClient.js";
+
+
+// var params = {
+//     Message: "MESSAGE_TEXT", // MESSAGE_TEXT
+//     TopicArn: "TOPIC_ARN", //TOPIC_ARN
+// };
+const publishToTopic = async (params) => {
+    try {
+        const data = await snsClient.send(new PublishCommand(params));
+        console.log("Success.", data);
+        return data; // For unit tests.
+    } catch (err) {
+        console.log("Error", err.stack);
+    }
+};
 
 // const params = { TopicArn: "TOPIC_ARN" }; //TOPIC_ARN
 const deleteTopic = async (params) => {
@@ -90,4 +106,5 @@ export {
     deleteTopic,
     subscribeEmail,
     GetTopicAttributes,
+    publishToTopic,
 }

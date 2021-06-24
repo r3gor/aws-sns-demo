@@ -11,7 +11,7 @@ import TopicView from './components/topicView.js';
 export default class View {
     constructor() {
         const topic_view = document.querySelector("#topic-view")
-        topic_view.style.display = "none";
+        // topic_view.style.display = "none";
 
         this.topic_view = new TopicView();
         this.topic_table = new TopicTable();

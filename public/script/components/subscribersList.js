@@ -3,15 +3,14 @@ import { getSuscriptors } from "../helpers.js";
 export default class SubscribersList {
     constructor() {
         this.topic_suscriptors = document.querySelector("#topic-view #topic-suscriptors");
-
+        // this.topic_suscriptors.classList.add("animate__animated animate__fadeIn");
+        // this.topic_suscriptors.classList.add("animate__animated animate__fadeIn");
     }
 
     async render(topicArn) {
-        // SubscriptionArn: "PendingConfirmation"
         const { Subscriptions } = await getSuscriptors(topicArn);
-        // debugger;
         const html = Subscriptions.map(({ Endpoint, SubscriptionArn }) => `
-            <li>
+            <li class="animate__animated animate__fadeIn">
             ${Endpoint}
             ${SubscriptionArn === "PendingConfirmation" ?
                 '(Confirmación Pendiente)' : ''

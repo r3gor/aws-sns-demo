@@ -1,6 +1,7 @@
 import { getSuscriptors, subscribeEmail } from "../helpers.js"
 import { getName } from "../utils.js"
 import AddSubscriber from "./addSubscriber.js"
+import MessageForm from "./messageForm.js";
 import SubscribersList from "./subscribersList.js"
 
 export default class TopicView {
@@ -12,6 +13,7 @@ export default class TopicView {
 
         this.subscribers_list = new SubscribersList();
         this.add_subscriber = new AddSubscriber();
+        this.message_form = new MessageForm();
 
         this.add_subscriber.setCallback((Endpoint) => this.addNewSubscriber(Endpoint));
 
@@ -22,9 +24,15 @@ export default class TopicView {
 
         this.ARN = topicArn;
 
-        this.topic_view.style.display = "";
-        this.topic_title.innerText = getName(topicArn);
+        this.topic_view.style.display = "block";
+        this.topic_title.innerHTML = `
+        <h3 class="animate__animated animate__fadeInDown">
+            Sorteo:  ${getName(topicArn)}
+        </h3>
+        `;
 
+        this.message_form.setARN(this.ARN);
+        this.message_form.setCallback();
         await this.subscribers_list.render(topicArn);
     }
 

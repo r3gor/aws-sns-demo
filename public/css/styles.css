@@ -5,30 +5,36 @@ h2,
 
 li {
     color: #f5ffaa;
+    list-style-type:none;
 }
 
 #titulo {
     margin-top: 18px;
 }
 
+.row {
+    width: 100%;
+}
 
 /*BARRA DE NAVEGACION*/
 
 #navbar {
     background-color: #2b2e44;
+    width: 100%;
+    position: relative;
 }
 
 #main-nav {
     display: flex;
-    list-style: none;
-    font-family: "Lato", sans-serif;
+    /* list-style: none; */
+    /* font-family: "Lato", sans-serif; */
 }
 
 #main-nav li a {
     color: #fff;
     text-decoration: none;
-    padding: 25px 0.9em;
-    display: inline-block;
+    /* padding: 25px 0.9em; */
+    /* display: inline-block; */
 }
 
 #main-nav li a:hover {
@@ -91,6 +97,10 @@ footer div div ul li a {
 
 li{
     color: #000000;
+}
+
+#topic-view{
+    display: none;
 }
 
 #copyright {

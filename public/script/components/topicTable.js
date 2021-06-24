@@ -20,8 +20,10 @@ export default class TopicTable {
                         <td>${name}</td>
                         <td>
                             <div class="btns container" data-arn=${topic.TopicArn}>
-                                <button class="btn btn-primary m-2"data-idx=${i}>Seleccionar</button>
-                                <button class="btn btn-danger m-2" data-idx=${i}>Borrar</button>
+                                <button class="btn btn-primary far fa-hand-point-left m-2"data-idx=${i}>
+                                </button>
+                                <button class="btn btn-danger far fa-trash-alt m-2" data-idx=${i}>
+                                </button>
                             </div>
                         </td>
                     </tr>
