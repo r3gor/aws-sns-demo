@@ -46,6 +46,7 @@ export default class TopicTable {
                 e.preventDefault();
                 const arn = e.target.parentElement.dataset.arn;
                 await deleteTopic(arn);
+                document.querySelector("#topic-view").style.display = "none";
             }
         }))
 
