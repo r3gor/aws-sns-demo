@@ -53,10 +53,23 @@ const subscribeEmail = async ({ arn, Endpoint }) => {
         .then(console.log);
 }
 
+const publishToTopic = async ({ arn, Message }) => {
+    await fetch(`/topics/${arn}/message`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json;charset=utf-8"
+        },
+        body: JSON.stringify({ Message })
+    })
+        .then(res => res.json())
+        .then(console.log);
+}
+
 export {
     getTopics,
     getSuscriptors,
     addTopic,
     deleteTopic,
     subscribeEmail,
+    publishToTopic,
 }

@@ -1,12 +1,14 @@
 import Express from "express";
 import * as path from 'path';
-import { listTopics, listSubscriptionsByTopic, createTopic, deleteTopic, subscribeEmail, } from './sns_helpers.js'
+import morgan from "morgan";
+import { listTopics, listSubscriptionsByTopic, createTopic, deleteTopic, subscribeEmail, publishToTopic, } from './sns_helpers.js'
 
 const app = Express();
 const port = 3000;
 
 app.use(Express.static("public"));
 app.use(Express.json());
+app.use(morgan('tiny'))
 
 app.get("/", async (req, res) => {
     res.sendFile(path.resolve('index.html'))
@@ -62,6 +64,21 @@ app.post("/topics/:TopicArn/suscribers", async (req, res) => {
     console.log(params);
 
     const s = await subscribeEmail(params);
+    res.json(s);
+})
+
+app.post("/topics/:TopicArn/message", async (req, res) => {
+    const { Message } = req.body;
+    const { TopicArn } = req.params;
+
+    const params = {
+        Message,
+        TopicArn, //TOPIC_ARN
+    };
+
+    console.log(params);
+
+    const s = await publishToTopic(params);
     res.json(s);
 })
 
