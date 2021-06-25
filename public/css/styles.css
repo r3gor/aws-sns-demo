@@ -1,3 +1,4 @@
+
 h2,
 #grupo {
     color: #9f9f9f;
@@ -17,7 +18,6 @@ li {
 }
 
 /*BARRA DE NAVEGACION*/
-
 #navbar {
     background-color: #2b2e44;
     width: 100%;
@@ -55,6 +55,23 @@ th, td{
     padding: 20px;
 }
 
+.row{
+    width: 100%;
+}
+
+#btn-sortear{
+    margin: 5px;
+}
+
+#main-nav li a{
+    padding: 0px;
+    font-size: 4em;
+    margin: 10px 0px 0px 0px;
+} 
+
+#topic-message-send{
+    margin:10px;
+}
 
 /*PIE DE PAGINA*/
 

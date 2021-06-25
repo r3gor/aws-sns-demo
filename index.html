@@ -27,7 +27,7 @@
 
 </head>
 
-<!--Cabezera-->
+<!--Cabecera-->
 <header>
     <nav id="navbar" class="navbar-nav">
         <div class="container">
@@ -51,7 +51,7 @@
 <body>
 
     <!--Principal-->
-    <main>
+     <main>
         <div id="Cuerpo" class="container">
             <div class="row">
                 <div class="col">
@@ -106,12 +106,13 @@
                     <div id="sorteos-creados" class="col">
                         <table id="tabla-sorteos">
                             <tr>
-                                <th>Suscriptos</th>
+                                <th>Suscritos</th>
                             </tr>
                             <tr id="topic-suscriptors">
                                 <td></td>
                             </tr>
                         </table>
+                        <button id="btn-sortear" class="btn btn-success" onclick="sortear()">Sortear</button>
                     </div>
                     <div id="nuevo" class="col">
                         <div id="nuevo-titulo">
@@ -155,9 +156,13 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-6 text-center">
+            
+            <div class="col-5 text-center">
+                
                 <h3 class="display-6 bold" id="grupo">Grupo Nº8:</h3>
+                
                 <ul class="list-group">
+                    
                     <li class="list-group-item">Chavez Malca, Emerzon Jose</li>
                     <li class="list-group-item">Cifuentes Michuy, Daniel Ernesto</li>
                     <li class="list-group-item">Jiménez Castañeda, Luis Franco</li>
@@ -165,11 +170,13 @@
                     <li class="list-group-item">Pérez Fonseca, Juan Diego</li>
                     <li class="list-group-item">Ramos Paredes, Roger Anthony</li>
                     <li class="list-group-item">Salcedo Alfaron, Jhon Marco</li>
+                    
                 </ul>
 
             </div>
+            
         </div>
-    </main>
+    </main> 
 
     <!--Pie de Pagina-->
     <footer>
@@ -178,6 +185,7 @@
         </div>
     </footer>
 
+    <script src="./script/components/lottery.js"></script>
     <script src="./script/index.js" type="module"></script>
 </body>
 

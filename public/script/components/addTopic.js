@@ -10,6 +10,7 @@ export default class AddTopic {
             e.preventDefault();
             const topicName = ipt_topic.value;
             await addTopic(topicName);
+            ipt_topic.value="";
         }
     }
 
