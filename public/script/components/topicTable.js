@@ -11,8 +11,11 @@ export default class TopicTable {
     }
 
     async render() {
-        const topics = await getTopics();
-
+        const privates = [
+            "AWS_FreeTierAlarm",
+        ]
+        let topics = await getTopics()
+        topics = topics.filter(({ TopicArn }) => !(privates.includes(getName(TopicArn))));
         const html = topics.map((topic, i) => {
             const name = getName(topic.TopicArn);
             return `

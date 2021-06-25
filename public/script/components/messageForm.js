@@ -31,6 +31,16 @@ Mensaje:
             console.log(message);
             const d = await publishToTopic({ arn: this.arn, Message: message });
             console.log(d);
+
+            this.asunto.value = "";
+            this.mensaje.innerHTML = "";
+
+            document.querySelector("#success-msg").style.display = "block";
+            document.querySelector("#success-msg").innerHTML = `
+            <div class="alert alert-success" role="alert">
+                Mensaje enviado! (Asunto: ${asunto})
+            </div>
+            `
         }
     }
 }

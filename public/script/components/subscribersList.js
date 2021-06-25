@@ -9,15 +9,36 @@ export default class SubscribersList {
 
     async render(topicArn) {
         const { Subscriptions } = await getSuscriptors(topicArn);
-        const html = Subscriptions.map(({ Endpoint, SubscriptionArn }) => `
-            <li class="animate__animated animate__fadeIn">
-            ${Endpoint}
-            ${SubscriptionArn === "PendingConfirmation" ?
-                '(Confirmación Pendiente)' : ''
-            }
-            </li>
-        `
-        ).reduce((acc, item) => acc + item, '');
+        let checkSubs = false;
+        let html = Subscriptions.length == 0 ?
+            `
+            <div class="alert alert-danger" role="alert">
+                No existen suscriptores en este tópico. <br/>
+                ¡Agregue al menos una antes de sortear!
+            </div>
+            `
+            :
+            Subscriptions.map(({ Endpoint, SubscriptionArn }) => {
+                if (SubscriptionArn !== "PendingConfirmation") checkSubs = true;
+                return `
+                    <li class="animate__animated animate__fadeIn">
+                    ${Endpoint}
+                    ${SubscriptionArn === "PendingConfirmation" ?
+                        '(Confirmación Pendiente)' : ''
+                    }
+                    </li>
+                `
+            }).reduce((acc, item) => acc + item, '');
+
+        if (!checkSubs && Subscriptions.length != 0) {
+            html += `
+            <br/>
+            <div class="alert alert-danger" role="alert">
+                No existen suscriptores confirmados en este tópico. <br/>
+                ¡Espere al menos una antes de sortear!
+            </div>
+            `
+        }
 
         this.topic_suscriptors.innerHTML = html;
     }
