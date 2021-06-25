@@ -27,7 +27,7 @@ export default class TopicView {
         this.topic_view.style.display = "block";
         this.topic_title.innerHTML = `
         <h3 class="animate__animated animate__fadeInDown">
-            Sorteo:  ${getName(topicArn)}
+            Sorteo: <span id="titulo-sorteo-seleccionado"> ${getName(topicArn)} </span>
         </h3>
         `;
 

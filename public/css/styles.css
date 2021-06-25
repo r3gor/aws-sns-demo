@@ -59,6 +59,10 @@ th, td{
     width: 100%;
 }
 
+#btn-sortear{
+    margin: 5px;
+}
+
 #main-nav li a{
     padding: 0px;
     font-size: 4em;
