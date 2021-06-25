@@ -12,6 +12,7 @@ export default class AddSubscriber {
             const email = ipt.value
             console.log("Add: " + ipt.value)
             callback(email);
+            ipt.value="";
         }
     }
 

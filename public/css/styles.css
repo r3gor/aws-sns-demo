@@ -69,6 +69,10 @@ th, td{
     margin: 10px 0px 0px 0px;
 } 
 
+#topic-message-send{
+    margin:10px;
+}
+
 /*PIE DE PAGINA*/
 
 footer {
