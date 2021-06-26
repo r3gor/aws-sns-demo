@@ -13,6 +13,10 @@ li {
     margin-top: 18px;
 }
 
+#btn-actualizar-subs{
+    color: rgb(255, 255, 255);
+}
+
 .row {
     width: 100%;
 }

@@ -37,6 +37,11 @@ export default class TopicView {
         this.message_form.setARN(this.ARN);
         this.message_form.setCallback();
         await this.subscribers_list.render(topicArn);
+
+        document.querySelector("#btn-actualizar-subs").onclick = async (e) => {
+            e.preventDefault();
+            await this.subscribers_list.render(topicArn);
+        }
     }
 
     async addNewSubscriber(Endpoint) {
