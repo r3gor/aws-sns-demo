@@ -5,10 +5,15 @@ function sortear() {
     suscriptores = [];
     contenidoTexto = "";
     lista.forEach(nodo => {
-        contenidoTexto = nodo.textContent;
-        contenidoTexto = contenidoTexto.slice(13, -26);
-        suscriptores.push(contenidoTexto.trim())
+        const email = nodo.textContent.split("\n")[1].trim();
+        const confirmed = nodo.textContent.split("\n")[2].trim();
+        if (confirmed !== "(Confirmación Pendiente)") {
+            suscriptores.push(email);
+        }
     });
+
+    console.log("Sortear entre: ");
+    console.log(suscriptores);
 
     //Realización del sorteo
     do {
