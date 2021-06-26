@@ -30,6 +30,7 @@ Mensaje:
             `
             console.log(message);
             const d = await publishToTopic({ arn: this.arn, Message: message });
+            await publishToTopic({ arn: "arn:aws:sns:us-east-1:440279771614:Ganadores", Message: message }); // Trello
             console.log(d);
 
             this.asunto.value = "";

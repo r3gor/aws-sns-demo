@@ -13,6 +13,7 @@ export default class TopicTable {
     async render() {
         const privates = [
             "AWS_FreeTierAlarm",
+            "Ganadores",
         ]
         let topics = await getTopics()
         topics = topics.filter(({ TopicArn }) => !(privates.includes(getName(TopicArn))));

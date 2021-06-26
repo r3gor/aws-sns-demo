@@ -1,5 +1,4 @@
 function sortear() {
-    debugger;
     //Obtener los suscriptores del DOM para no tener que solicitar
     //Nuevamente a AWS
     lista = document.querySelectorAll("#topic-suscriptors li");
