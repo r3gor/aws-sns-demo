@@ -15,26 +15,29 @@ function sortear() {
     console.log("Sortear entre: ");
     console.log(suscriptores);
 
-    if (suscriptores.length == 0) return;
+    if (suscriptores.length == 0) {
+        console.log("No existen suscripciones confirmadas");
+        return;
+    } else {
+        //Realización del sorteo
+        do {
+            elegido = Math.random() * (suscriptores.length);
+        } while (elegido == suscriptores.length);
 
-    //Realización del sorteo
-    do {
-        elegido = Math.random() * (suscriptores.length);
-    } while (elegido == suscriptores.length);
+        elegido = Math.floor(elegido);
+        //console.log("El ganador es " + suscriptores[elegido]);
 
-    elegido = Math.floor(elegido);
-    //console.log("El ganador es " + suscriptores[elegido]);
+        //Colocar mensaje
+        asunto = document.querySelector("#topic-message-asunto");
+        mensaje = document.querySelector("#topic-message-mensaje");
+        titulo = document.querySelector("#titulo-sorteo-seleccionado");
 
-    //Colocar mensaje
-    asunto = document.querySelector("#topic-message-asunto");
-    mensaje = document.querySelector("#topic-message-mensaje");
-    titulo = document.querySelector("#titulo-sorteo-seleccionado");
+        // asunto.setAttribute("value", "¡Felicitaciones " + suscriptores[elegido].trim() + "!");
+        asunto.value = "¡Felicitaciones " + suscriptores[elegido].trim() + "!";
 
-    // asunto.setAttribute("value", "¡Felicitaciones " + suscriptores[elegido].trim() + "!");
-    asunto.value = "¡Felicitaciones " + suscriptores[elegido].trim() + "!";
-
-    mensaje.innerHTML = "¡Felicitaciones " + suscriptores[elegido].trim() + "! " +
-        "por haber sido el ganador del sorteo " + titulo.textContent.trim() + ".\n" +
-        "Agradecemos a todos por participar.";
+        mensaje.innerHTML = "¡Felicitaciones " + suscriptores[elegido].trim() + "! " +
+            "por haber sido el ganador del sorteo " + titulo.textContent.trim() + ".\n" +
+            "Agradecemos a todos por participar.";
+    }
 }
 
