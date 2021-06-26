@@ -24,7 +24,9 @@ export default class TopicView {
 
         this.ARN = topicArn;
 
+        this.message_form.reset();
         this.topic_view.style.display = "block";
+
         document.querySelector("#success-msg").style.display = "none";
         this.topic_title.innerHTML = `
         <h3 class="animate__animated animate__fadeInDown">

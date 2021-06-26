@@ -14,7 +14,7 @@ export default class SubscribersList {
             `
             <div class="alert alert-danger" role="alert">
                 No existen suscriptores en este tópico. <br/>
-                ¡Agregue al menos una antes de sortear!
+                ¡Agregue al menos una suscripción antes de sortear!
             </div>
             `
             :
@@ -35,7 +35,7 @@ export default class SubscribersList {
             <br/>
             <div class="alert alert-danger" role="alert">
                 No existen suscriptores confirmados en este tópico. <br/>
-                ¡Espere al menos una antes de sortear!
+                ¡Espere al menos una confirmación antes de sortear!
             </div>
             `
         }

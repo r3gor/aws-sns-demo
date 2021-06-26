@@ -15,6 +15,8 @@ function sortear() {
     console.log("Sortear entre: ");
     console.log(suscriptores);
 
+    if (suscriptores.length == 0) return;
+
     //Realización del sorteo
     do {
         elegido = Math.random() * (suscriptores.length);

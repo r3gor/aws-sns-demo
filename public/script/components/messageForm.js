@@ -14,6 +14,11 @@ export default class MessageForm {
         this.arn = arn;
     }
 
+    reset() {
+        this.asunto.value = "";
+        this.mensaje.innerHTML = "";
+    }
+
     setCallback() {
         this.send.onclick = async (e) => {
             e.preventDefault();
@@ -33,8 +38,7 @@ Mensaje:
             await publishToTopic({ arn: "arn:aws:sns:us-east-1:440279771614:Ganadores", Message: message }); // Trello
             console.log(d);
 
-            this.asunto.value = "";
-            this.mensaje.innerHTML = "";
+            this.reset();
 
             document.querySelector("#success-msg").style.display = "block";
             document.querySelector("#success-msg").innerHTML = `
