@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { UserContext } from './components/userContext'
+import { AppRouter } from './routers/AppRouter'
 
-function App() {
+export const App = () => {
+
+  const [currentUser, setCurrentUser] = useState({});
+  const [voteId, setVoteId] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    
+    <UserContext.Provider value={{
+      currentUser,
+      setCurrentUser,
+      voteId,
+      setVoteId,
+    }}>
 
-export default App;
+      <AppRouter />
+
+    </UserContext.Provider>
+  )
+}
