@@ -13,8 +13,17 @@ const getHostname = async () => {
     await fetch("/hostname")
         .then(r => r.json())
         .then(d => hostname = d.hostname)
-        .catch(() => console.log("Error /topics"));
+        .catch(() => console.log("Error /hostname"));
     return hostname;
+}
+
+const getPublicIp = async () => {
+    let public_ip = null;
+    await fetch("/public_ip")
+        .then(r => r.json())
+        .then(d => public_ip = d.public_ip)
+        .catch(() => console.log("Error /public_ip"));
+    return public_ip;
 }
 
 const getSuscriptors = async (TopicArn) => {
@@ -76,6 +85,7 @@ const publishToTopic = async ({ arn, Message }) => {
 
 export {
     getHostname,
+    getPublicIp,
     getTopics,
     getSuscriptors,
     addTopic,

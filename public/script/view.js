@@ -5,7 +5,8 @@ import {
     deleteTopic,
     getSuscriptors,
     getTopics,
-    getHostname
+    getHostname,
+    getPublicIp,
 } from './helpers.js';
 import TopicView from './components/topicView.js';
 
@@ -29,14 +30,14 @@ export default class View {
 
     async render() {
 
-        const hostname = await getHostname();
+        const public_ip = await getPublicIp();
 
         this.hostname_view.innerHTML = `
-        <div class="alert alert-success"> 
-            Hostname es:
+        <div class="alert alert-success animate__animated animate__pulse"> 
+            Dirección IP pública del servidor:
             <h4 class="alert-heading">
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                ${hostname}
+                ${public_ip}
             </h4>
         </div>
         `

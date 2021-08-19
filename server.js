@@ -2,6 +2,7 @@ import Express from "express";
 import * as path from 'path';
 import morgan from "morgan";
 import os from 'os';
+import publicIp from 'public-ip';
 import { listTopics, listSubscriptionsByTopic, createTopic, deleteTopic, subscribeEmail, publishToTopic, } from './sns_helpers.js'
 
 const app = Express();
@@ -19,6 +20,13 @@ app.get("/hostname", async (req, res) => {
     console.log("HOSTNAME: ", os.hostname())
     res.json({
         hostname: os.hostname(),
+    })
+})
+
+app.get("/public_ip", async (req, res) => {
+    console.log("HOSTNAME: ", os.hostname())
+    res.json({
+        public_ip: await publicIp.v4(),
     })
 })
 
