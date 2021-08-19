@@ -34,13 +34,13 @@ export default class View {
         this.hostname_view.innerHTML = `
         <div class="alert alert-success"> 
             Hostname es:
-        <h4 class="alert-heading">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            ${hostname}
-        </h4> 
+            <h4 class="alert-heading">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                ${hostname}
+            </h4>
         </div>
         `
-
+        
         await this.topic_table.render();
     }
 
