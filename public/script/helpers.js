@@ -8,6 +8,15 @@ const getTopics = async () => {
     return ans;
 }
 
+const getHostname = async () => {
+    let hostname = null;
+    await fetch("/hostname")
+        .then(r => r.json())
+        .then(d => hostname = d.hostname)
+        .catch(() => console.log("Error /topics"));
+    return hostname;
+}
+
 const getSuscriptors = async (TopicArn) => {
     let ans = null;
     await fetch(`/topics/${TopicArn}/suscribers`)
@@ -66,6 +75,7 @@ const publishToTopic = async ({ arn, Message }) => {
 }
 
 export {
+    getHostname,
     getTopics,
     getSuscriptors,
     addTopic,

@@ -1,6 +1,7 @@
 import Express from "express";
 import * as path from 'path';
 import morgan from "morgan";
+import os from 'os';
 import { listTopics, listSubscriptionsByTopic, createTopic, deleteTopic, subscribeEmail, publishToTopic, } from './sns_helpers.js'
 
 const app = Express();
@@ -12,6 +13,13 @@ app.use(morgan('tiny'))
 
 app.get("/", async (req, res) => {
     res.sendFile(path.resolve('index.html'))
+})
+
+app.get("/hostname", async (req, res) => {
+    console.log("HOSTNAME: ", os.hostname())
+    res.json({
+        hostname: os.hostname(),
+    })
 })
 
 app.get("/topics", async (req, res) => {
