@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SNS (demo)</title>
+    <title>Lottery FISI</title>
 
     <!--Fuentes-->
     <link
@@ -18,8 +18,9 @@
     <!--Favicon-->
 
     <!--Estilos CSS-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- Animate -->
@@ -32,7 +33,7 @@
     <nav id="navbar" class="navbar-nav">
         <div class="container">
             <div class="row justify-content-between">
-                <h2 id="titulo" class="col">Demo SNS</h2>
+                <h2 id="titulo" class="col">Lottery FISI</h2>
                 <ul id="main-nav" class="col-3">
                     <li>
                         <span style="font-size: 15px">
@@ -40,8 +41,6 @@
                                 aria-hidden="true"></a>
                         </span>
                     </li>
-                    <!-- <li><a href="#">Docs</a></li> -->
-                    <!-- <li><a href="#">Enlace 2</a></li> -->
                 </ul>
             </div>
         </div>
@@ -125,16 +124,14 @@
 
                 <div id="sorteos" class="row">
                     <div id="sorteos-creados" class="col">
-                        <table id="tabla-sorteos">
-                            <tr>
-                                <th>Suscritos</th>
-                            </tr>
-                            <tr id="topic-suscriptors">
-                                <td></td>
-                            </tr>
-                        </table>
-                        <button id="btn-sortear" class="btn btn-success" onclick="sortear()">Sortear</button>
-                        <button id="btn-actualizar-subs" type="button" class="btn btn-info">Refrescar</button>
+                        <ul class="list-group text-center m-3" id="tabla-sorteos">
+                            <li class="list-group-item active">Suscritos</li>
+                            <div id="topic-suscriptors"></div>
+                            <li class="list-group-item">
+                                <button id="btn-sortear" class="btn btn-success" onclick="sortear()">Sortear</button>
+                                <button id="btn-actualizar-subs" type="button" class="btn btn-info">Refrescar</button>
+                            </li>
+                        </ul>
 
                     </div>
                     <div id="nuevo" class="col">
@@ -152,27 +149,27 @@
                             <button class="btn btn-primary">Añadir</button>
                         </form>
                     </div>
+                    <hr>
                     <div class="container">
                         <h2>Enviar mensaje </h2>
                         <form id="topic-message">
-                            <div class="form-group">
-
-                                <label for="nombre">Asunto </label>
+                            <div class="form-group m-2">
+                                <label class="px-1" for="nombre">Asunto</label>
                                 <input id="topic-message-asunto" type="text" class="form-control">
                             </div>
 
                             <form>
-                                <div class="form-group">
-                                    <label for="comment">Mensaje : </label>
+                                <div class="form-group m-2">
+                                    <label class="px-1" for="comment">Mensaje</label>
                                     <textarea id="topic-message-mensaje" class="form-control" rows="5"
                                         id="comment"></textarea>
                                 </div>
                             </form>
 
-                            <button class="btn btn-primary" id="topic-message-send">Enviar</button>
+                            <button class="btn btn-primary m-2 px-4" id="topic-message-send">Enviar</button>
                         </form>
+                        <div id="success-msg" class="m-3"></div>
                     </div>
-                    <div id="success-msg"></div>
                 </div>
 
                 <hr />
@@ -183,10 +180,10 @@
 
             <div class="col-5 text-center">
 
-                <h3 class="display-6 bold" id="grupo">Grupo Nº8:</h3>
+                <!-- <h3 class="display-6 bold" id="grupo">:</h3> -->
 
                 <ul class="list-group">
-
+                    <li class="list-group-item active">Grupo Nº8</li>
                     <li class="list-group-item">Chavez Malca, Emerzon Jose</li>
                     <li class="list-group-item">Cifuentes Michuy, Daniel Ernesto</li>
                     <li class="list-group-item">Jiménez Castañeda, Luis Franco</li>

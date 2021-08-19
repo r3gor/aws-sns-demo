@@ -42,7 +42,7 @@ Mensaje:
 
             document.querySelector("#success-msg").style.display = "block";
             document.querySelector("#success-msg").innerHTML = `
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success animate__animated animate__pulse text-center" role="alert">
                 Mensaje enviado! (Asunto: ${asunto})
             </div>
             `

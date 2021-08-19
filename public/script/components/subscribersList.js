@@ -21,7 +21,7 @@ export default class SubscribersList {
             Subscriptions.map(({ Endpoint, SubscriptionArn }) => {
                 if (SubscriptionArn !== "PendingConfirmation") checkSubs = true;
                 return `
-                    <li class="animate__animated animate__fadeIn">
+                    <li class="animate__animated animate__fadeIn list-group-item">
                     ${Endpoint}
                     ${SubscriptionArn === "PendingConfirmation" ?
                         '(Confirmación Pendiente)' : ''
