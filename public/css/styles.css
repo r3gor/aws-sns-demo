@@ -1,3 +1,16 @@
+#adsa {
+    color: chartreuse;
+    color: gold;
+}
+
+#public_ip {
+    position:fixed; 
+    top: 0px; 
+    left: 0px; 
+    width: 100%;
+    z-index:9999; 
+    border-radius:0px
+}
 
 h2,
 #grupo {
@@ -26,6 +39,8 @@ li {
     background-color: #2b2e44;
     width: 100%;
     position: relative;
+    margin-top: 95px;
+    padding-bottom: 6px;
 }
 
 #main-nav {

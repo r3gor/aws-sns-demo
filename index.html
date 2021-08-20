@@ -36,7 +36,7 @@
                 <h2 id="titulo" class="col">Lottery FISI</h2>
                 <ul id="main-nav" class="col-3">
                     <li>
-                        <span style="font-size: 15px">
+                        <span style="font-size: 10px">
                             <a href="https://github.com/r3gor/aws-sns-demo" target="_blank" class="fab fa-github"
                                 aria-hidden="true"></a>
                         </span>
@@ -64,7 +64,7 @@
       
     <div class="container my-4">
         <div class="col-sm-12 text-center">
-            <div id="hostname">
+            <div id="public_ip">
                 <p class="alert alert-warning"> Obteniendo datos del servidor ... </p>
             </div>
         </div>
@@ -206,6 +206,41 @@
         </div>
     </footer>
 
+
+    <script type="text/javascript">
+        
+        const getColorInstance = (public_ip) => {
+            const instances = [
+                "52.207.207.55",
+                "3.84.10.168",
+                "54.152.216.53",
+            ]
+        
+            if (public_ip == instances[0]) return 'aqua';
+            if (public_ip == instances[1]) return 'gold';
+            if (public_ip == instances[2]) return 'lightpink';
+            else return 'violet';
+        }
+        
+        let public_ip = "<%= data.public_ip %>";
+        let petition = "GET /"
+
+        console.log(
+            `%c${public_ip} %c${petition}`, 
+            `background: black; color: ${getColorInstance(public_ip)};`, 
+            'background: black; color: chartreuse;'
+            );
+
+        document.querySelector("#public_ip").innerHTML = `
+        <div class="alert alert-primary animate__animated animate__pulse"> 
+            La última petición se realizó al servidor con dirección IP pública:
+            <h4 class="alert-heading">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                ${public_ip}
+            </h4>
+        </div>
+        ` 
+    </script>
     <script src="./script/components/lottery.js"></script>
     <script src="./script/index.js" type="module"></script>
 </body>
