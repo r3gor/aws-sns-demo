@@ -1,0 +1,30 @@
+
+1- instalar nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+2. reiniciar la instancia
+
+3. Correr: 
+nvm install --lts
+
+4. clonar proyecto
+git clone https://github.com/r3gor/aws-sns-demo.git
+
+6. Correr:
+npm i
+
+5. colocar credenciales de aws sdk en ~/.aws/credentials
+
+6. cd aws-sns-demo
+
+7. node server.js &
+
+Actualizar: 
+
+1. cd aws-sns-demo
+
+2. git pull
+
+3. npm i
+
+4. node server.js &
