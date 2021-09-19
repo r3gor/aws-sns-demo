@@ -1,21 +1,11 @@
-import React, { useContext } from 'react'
-import { isEmpty } from '../../helpers/utils';
-import { idByEmail, saveVoter, updateVotes } from '../../helpers/vote';
-import { UserContext } from '../../components/userContext';
+import React from 'react'
 
-export const BandCard = ({ band, index, disable, voteId }) => {
-
-    const {currentUser} = useContext(UserContext);
+export const BandCard = ({ band, index, disable, onVote }) => {
 
     const { bandName, bandAlbumName, votes } = band;
 
-    // const [validVote, setValidVote] = useState(false);
-
     const handleVotar = async (e) => {
-        e.preventDefault()
-        console.log(`Nuevo voto a ${bandName} (band #${index})`)
-        updateVotes(index, voteId, "increment");
-        saveVoter(idByEmail(currentUser.email), voteId, index);
+        onVote(index);
     }
 
     return (
@@ -26,7 +16,12 @@ export const BandCard = ({ band, index, disable, voteId }) => {
                 <h5 className="card-title">{ bandName }</h5>
                 <h6>Votos: { votes }</h6>
                 <p className="card-text">Con el album: {bandAlbumName}</p>
-                <button className={" btn btn-primary " + ((isEmpty(currentUser) || disable)? " disabled " : "")} onClick={handleVotar}>Votar</button>
+                <button 
+                    className={" btn btn-primary " + (disable? " disabled " : "")} 
+                    onClick={handleVotar}
+                >
+                    Votar
+                </button>
             </div>
         </div>
         </>

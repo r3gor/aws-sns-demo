@@ -5,31 +5,38 @@ import { idByEmail, saveVoter, updateVotes } from '../helpers/vote';
 
 export const useValidationVote = (voteData, voteId) => {
     
+
     const { currentUser } = useContext(UserContext);
     const [ currentVote, setCurrentVote ] = useState(-1);
 
     useEffect(() => {
 
         const notLogedIn = isEmpty(currentUser); 
-
-        if (notLogedIn) setCurrentVote(-1);
+        // debugger;
+        if (notLogedIn || voteData.length === 0) setCurrentVote(-1);
 
         else {
 
             const voteIndexBand = voteData.voters && voteData.voters[idByEmail(currentUser.email)];
-            const hasVoted = voteIndexBand !== 'undefined'
+            const hasVoted = (voteIndexBand !== undefined) && (voteIndexBand !== -1)  
             
-            setCurrentVote( hasVoted? voteIndexBand:-1 )
+            setCurrentVote( hasVoted? voteIndexBand : -1 )
         }
     
     }, [currentUser, voteData])
 
-    const vote = (bandIndex) => {
+    const cantVote = () => {
 
         const notLogedIn = isEmpty(currentUser);
-        const hasVoted = currentVote !== '-1'
-        
-        if (notLogedIn || hasVoted) return
+        const hasVoted = currentVote !== -1;
+    
+        return notLogedIn || hasVoted;
+
+    }
+
+    const vote = (bandIndex) => {
+
+        if (cantVote()) return;
 
         console.log(`Nuevo voto a ${bandIndex}`)
 
@@ -50,5 +57,5 @@ export const useValidationVote = (voteData, voteId) => {
 
     } 
 
-    return [currentVote, vote, undoVote]
+    return {currentVote, vote, undoVote, cantVote}
 }
