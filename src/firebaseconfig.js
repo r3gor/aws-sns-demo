@@ -12,6 +12,7 @@ import 'firebase/analytics';
 var firebaseConfig = {
     apiKey: "AIzaSyDA5YypDsagE4p6cCcdqETR--5uWWtF040",
     authDomain: "arq-demo-05.firebaseapp.com",
+    databaseURL: "https://arq-demo-05-default-rtdb.firebaseio.com",
     projectId: "arq-demo-05",
     storageBucket: "arq-demo-05.appspot.com",
     messagingSenderId: "957667703707",

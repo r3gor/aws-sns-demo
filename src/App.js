@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { UserContext } from './components/userContext'
+import { UserContext } from './components/userContext';
 import { AppRouter } from './routers/AppRouter'
 
 export const App = () => {

@@ -5,10 +5,9 @@ import { Auth } from './Auth'
 export const Navbar = () => {
     return (
         <>
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-            
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <Link 
-                className="navbar-brand" 
+                className="navbar-brand ms-5" 
                 to="/"
             >
                 : : FISI DISK : :
@@ -30,7 +29,7 @@ export const Navbar = () => {
             
             </div>
 
-            <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <div className="">
                 <ul className="navbar-nav ml-auto">
                     <Auth/>
                 </ul>

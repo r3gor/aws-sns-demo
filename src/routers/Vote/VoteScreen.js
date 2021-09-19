@@ -1,30 +1,34 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams} from 'react-router-dom';
-import { fireDatabase } from '../firebaseconfig';
-import { idByEmail, isEmpty, saveVoter, updateVotes } from '../Utils';
+import { isEmpty } from '../../helpers/utils';
+import { idByEmail, saveVoter, updateVotes } from '../../helpers/vote';
+import { UserContext } from '../../components/userContext';
 import { BandCard } from './BandCard';
-import { UserContext } from './userContext';
+import { useFetchFirebase } from '../../hooks/useFetchFirebase';
 
 export const VoteScreen = () => {
 
-    const {setVoteId, currentUser} = useContext(UserContext);
+    const {currentUser} = useContext(UserContext);
     const {voteId} = useParams();
-    
-    setVoteId(voteId);
 
-    const [voteData, setVoteData] = useState({});
+    const [voteDataFetch] = useFetchFirebase(`vote/${voteId}`); 
+    const {data: voteData} = voteDataFetch;
+    // setVoteId(voteId);
+
+    // const [voteData, setVoteData] = useState({});
     const [voteBandIndex, setVoteBandIndex] = useState(-1);
 
-    useEffect(() => {
-        fireDatabase.ref(`vote/${voteId}`)
-            .on('value', snapshot => {
-                if (snapshot.exists()){
-                    const data = snapshot.val();
-                    setVoteData(data);
-                    console.log(voteData);
-                }
-            })
-    }, []);
+    // useEffect(() => {
+    //     fireDatabase.ref(`vote/${voteId}`)
+    //         .on('value', snapshot => {
+    //             if (snapshot.exists()){
+    //                 const data = snapshot.val();
+    //                 setVoteData(data);
+    //                 console.log(voteData);
+    //             }
+    //         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
     useEffect(() => {
         console.log(currentUser);
@@ -32,9 +36,9 @@ export const VoteScreen = () => {
             setVoteBandIndex(-1);
             return;
         }
-
+        debugger;
         let index = voteData.voters? voteData.voters[idByEmail(currentUser.email)] : -1;
-        if (index == undefined)
+        if (index === undefined)
             index = -1;
         setVoteBandIndex(index)
     }, [currentUser, voteData]);
@@ -62,13 +66,13 @@ export const VoteScreen = () => {
             <div className="card-group">
                 {
                     voteData.data?.map((band, i) => 
-                        <BandCard key={i} band={band} disable={voteBandIndex==-1? false : true} index={i}/>
+                        <BandCard key={i} voteId={voteId} band={band} disable={voteBandIndex===-1? false : true} index={i}/>
                     )
                 }
             </div>
             
             {
-            voteBandIndex!=-1
+            voteBandIndex!==-1
             &&
             <div>
                 <h3>

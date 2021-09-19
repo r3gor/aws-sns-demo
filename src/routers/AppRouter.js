@@ -4,16 +4,16 @@ import {
     Switch,
     Route
 } from 'react-router-dom';
-import { AdminScreen } from '../components/AdminScreen';
-import { HomeScreen } from '../components/HomeScreen';
+import { AdminScreen } from './Admin/AdminScreen.js';
+import { HomeScreen } from './Home/HomeScreen.js';
+import { VoteScreen } from './Vote/VoteScreen.js';
 import { Navbar } from '../components/Navbar.js'
-import { VoteScreen } from '../components/VoteScreen';
 
 export const AppRouter = () => {
     return (
         <Router>
             <Navbar/>
-            <div className="container m-3">
+            <div className="container mt-4">
                 <Switch>
                     <Route exact path="/" component={HomeScreen} />
                     <Route exact path="/vote/:voteId" component={ VoteScreen } />

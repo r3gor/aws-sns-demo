@@ -1,15 +1,17 @@
 import React from 'react'
-import { isNumeric } from '../Utils.js';
+import { isNumeric } from '../../helpers/utils.js';
 
-export const InputQuantity = ({ onChange }) => {
+export const InputQuantity = ({ onChange, name }) => {
 
     const handleInputChange = (e) => {
+        
         const value = e.target.value;
-        if (isNumeric(value))
-            onChange(value);
-        else{
+
+        if ( isNumeric(value) ) {
+            onChange( parseInt(value) );
+        } else {
             e.target.value = '';
-            onChange(0);
+            onChange(0)
         }
     };
 

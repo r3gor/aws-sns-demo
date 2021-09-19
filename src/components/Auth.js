@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import { googleLogin, isEmpty } from '../Utils';
+import { googleLogin} from '../helpers/googleLogin';
+import { isEmpty } from '../helpers/utils';
 import { UserContext } from './userContext';
 
 export const Auth = () => {
@@ -17,16 +18,16 @@ export const Auth = () => {
     }
 
     return (
-        <>
+        <div className="d-flex me-5">
             {
                 isEmpty(currentUser) ?
                     <button className="btn btn-primary" onClick={handleLogin}> Inicia Sesión </button>
                     :
-                    <div>
-                        <button className="btn btn-success"> {currentUser.email} </button>
+                    <div className="btn-group">
+                        <button className="btn btn-outline-success disabled"> {currentUser.email} </button>
                         <button className="btn btn-primary" onClick={handleLogout}> Cerrar Sesión </button>
                     </div>
             }
-        </>
+        </div>
     )
 }

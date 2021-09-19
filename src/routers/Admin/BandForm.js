@@ -1,37 +1,12 @@
-import React, { useEffect } from 'react'
-import { useForm } from '../hooks/useForm'
+import React from 'react'
 
-export const BandForm = ({id, onChange, initialState}) => {
+export const BandForm = ({id, onChange, bandData}) => {
 
-    const [formValues, updateFormValues] = useForm(
-        initialState 
-        ||
-        {
-            bandName: "",
-            bandAlbumName: "",
-            votes: 0,
-        }
-        );
-
+    const {bandName, bandAlbumName} = bandData ;
+    
     const handleInputChange = (e) => {
-        updateFormValues(e);
-        
-        onChange(prev => {
-            let newData =  [...prev]
-            newData[id] = {...formValues};
-            return newData;
-    })
+        onChange(id, e.target.name, e.target.value);
     }
-
-    useEffect(() => {
-        onChange(prevData =>{
-            let newData = [...prevData]; 
-            newData[id] = {...formValues};
-            return newData;
-        })
-    }, [formValues, onChange, id])
-
-    const {bandName, bandAlbumName} = formValues;
 
     return (
         <div>

@@ -1,30 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { fireDatabase } from '../firebaseconfig';
-import { idByEmail, isEmpty, saveVoter, updateVotes, validateVote } from '../Utils';
-import { UserContext } from './userContext';
+import React, { useContext } from 'react'
+import { isEmpty } from '../../helpers/utils';
+import { idByEmail, saveVoter, updateVotes } from '../../helpers/vote';
+import { UserContext } from '../../components/userContext';
 
-export const BandCard = ({ band, index, disable }) => {
+export const BandCard = ({ band, index, disable, voteId }) => {
 
-    const {currentUser, voteId} = useContext(UserContext);
+    const {currentUser} = useContext(UserContext);
 
     const { bandName, bandAlbumName, votes } = band;
 
-    const [validVote, setValidVote] = useState(false);
-
-    // useEffect(() => {
-    //     setValidVote(validateVote(currentUser?.email, voteId))
-    // }, [])
+    // const [validVote, setValidVote] = useState(false);
 
     const handleVotar = async (e) => {
         e.preventDefault()
         console.log(`Nuevo voto a ${bandName} (band #${index})`)
         updateVotes(index, voteId, "increment");
         saveVoter(idByEmail(currentUser.email), voteId, index);
-        
-        // if (validateVote(currentUser.email, voteId)){
-        //     saveVoter(currentUser.email, voteId, index);
-        //     setValidVote(validateVote(currentUser?.email, voteId))
-        // }
     }
 
     return (
