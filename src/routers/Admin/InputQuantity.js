@@ -13,6 +13,7 @@ export const InputQuantity = ({ onChange, name }) => {
             e.target.value = '';
             onChange(0)
         }
+        
     };
 
     return (

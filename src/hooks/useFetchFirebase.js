@@ -27,5 +27,5 @@ export const useFetchFirebase = (ref) => {
 
     }, [ref])
 
-    return [state]
+    return state
 }

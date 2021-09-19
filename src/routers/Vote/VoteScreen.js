@@ -6,7 +6,7 @@ import { useValidationVote } from '../../hooks/useValidationVote';
 export const VoteScreen = () => {
 
     const {voteId} = useParams();
-    const [voteDataFetch] = useFetchFirebase(`vote/${voteId}`); 
+    const voteDataFetch = useFetchFirebase(`vote/${voteId}`); 
     const {data: voteData} = voteDataFetch;
     const {currentVote, vote, undoVote, cantVote} = useValidationVote(voteData, voteId);
     
@@ -42,7 +42,7 @@ export const VoteScreen = () => {
             &&
             <div>
                 <h3>
-                    Usted ha votado por: {currentVote} {voteData.data[currentVote]?.bandName}
+                    Usted ha votado por: {voteData.data[currentVote]?.bandName}
                 </h3>
                 <button 
                     className="btn btn-danger"

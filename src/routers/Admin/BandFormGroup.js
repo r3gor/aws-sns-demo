@@ -4,6 +4,11 @@ import { BandForm } from './BandForm'
 export const BandFormGroup = ({bandsQuantity, bandsData, onChange}) => {
     
     const fixActiveNav = () => {
+        /** Cuando el usuario clickea una pestaña nro. X y luego cambia la cantidad de bandas
+         * a un valor menor X la pestaña 'activa' se pierde, esta función corrige eso, haciendo
+         * que al ocurrir dicho evento se seleccione la última pestaña visible para que esta
+         * se ponga como 'activa'.  
+         */
         if (bandsQuantity === 0) return;
         
         const navButtons = Array.from(groupForm.current.querySelector('.nav').children);

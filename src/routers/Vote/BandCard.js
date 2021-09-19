@@ -5,7 +5,9 @@ export const BandCard = ({ band, index, disable, onVote }) => {
     const { bandName, bandAlbumName, votes } = band;
 
     const handleVotar = async (e) => {
+
         onVote(index);
+    
     }
 
     return (
